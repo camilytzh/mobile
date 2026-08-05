@@ -10,7 +10,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import {  home, addCircle, receipt, } from 'ionicons/icons';
 import Home from './pages/Home';
 import AddExpense from './pages/AddExpense'; 
 import Expenses from './pages/Expenses';
@@ -67,15 +67,15 @@ const App: React.FC = () => (
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/home">
-            <IonIcon aria-hidden="true" icon={triangle} />
+            <IonIcon aria-hidden="true" icon={home} />
             <IonLabel>Inicio</IonLabel>
           </IonTabButton>
           <IonTabButton tab="add-expense" href="/add-expense">
-            <IonIcon aria-hidden="true" icon={ellipse} />
+            <IonIcon aria-hidden="true" icon={addCircle} />
             <IonLabel>Registrar</IonLabel>
           </IonTabButton>
           <IonTabButton tab="expenses" href="/expenses">
-            <IonIcon aria-hidden="true" icon={square} />
+            <IonIcon aria-hidden="true" icon={receipt} />
             <IonLabel>Movimientos</IonLabel>
           </IonTabButton>
         </IonTabBar>

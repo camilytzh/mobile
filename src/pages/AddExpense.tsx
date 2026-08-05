@@ -11,7 +11,17 @@ import {
     IonSelectOption,
     IonButton
 } from '@ionic/react';
+import { useState } from 'react';
+import { toastController } from '@ionic/core';
 export default function AddExpense() {
+    const showToast = async () => {
+        const toast = await toastController.create({
+            message: 'Gasto registrado exitosamente',
+            duration: 1500,
+            color: 'success'
+        });
+        await toast.present();
+    };
     return (
         <IonPage>
             <IonHeader>
@@ -37,7 +47,7 @@ export default function AddExpense() {
                         <IonSelectOption value='ocio'>Ocio</IonSelectOption>
                     </IonSelect>
                 </IonItem>
-                <IonButton expand='block' className='ion-margin-top'> Guardar </IonButton>
+                <IonButton expand='block' onClick={showToast} className='ion-margin-top'> Guardar </IonButton>
             </IonContent>
         </IonPage>);
 }
