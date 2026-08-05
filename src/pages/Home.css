@@ -1,0 +1,254 @@
+.home-page {
+
+    --background: #F6FFF7;
+
+    padding: 18px;
+
+}
+
+.header-home {
+
+    background: linear-gradient(135deg, #2E7D32, #1B5E20);
+    /* también puedes usar azul como el ejemplo:
+background:#29457C;
+*/
+
+    color: white;
+
+    padding: 40px 20px 90px 20px;
+
+    border-bottom-left-radius: 30px;
+
+    border-bottom-right-radius: 30px;
+
+}
+
+.header-home h1 {
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+}
+
+.header-home p {
+
+    opacity: .9;
+
+    margin-top: 8px;
+
+}
+
+.hero {
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    background: linear-gradient(135deg, #1FA971, #49D17C);
+
+    color: white;
+
+    margin: 18px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+
+}
+
+.hero h1 {
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    margin-bottom: 6px;
+
+}
+
+.hero p {
+
+    opacity: .9;
+
+}
+
+.stats-row {
+
+    display: flex;
+
+    gap: 14px;
+
+    margin: 18px;
+
+}
+
+.stats-row ion-card {
+
+    flex: 1;
+
+}
+
+.balance-card {
+
+    margin: 18px;
+
+    border-radius: 22px;
+
+    background: linear-gradient(135deg, #FFD54F, #FFC107);
+
+    color: #3E2F00;
+
+    text-align: center;
+
+    .balance-card,
+    .expense-card,
+    .budget-card,
+    .movements-card {
+
+        border-radius: 22px;
+
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+
+    }
+
+}
+
+.balance-card h1 {
+
+    font-size: 42px;
+
+    font-weight: bold;
+
+    margin-top: 8px;
+
+}
+
+.content-home {
+
+    background: #F4F5F8;
+
+    min-height: 100vh;
+
+    margin-top: -55px;
+
+    border-top-left-radius: 30px;
+
+    border-top-right-radius: 30px;
+
+    padding-top: 20px;
+
+}
+
+.subtitle {
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+}
+
+.cards-row {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin: 18px;
+
+}
+
+.expense-card {
+
+    flex: 1;
+
+    border-radius: 22px;
+
+    background: #FFFFFF;
+
+    color: #2E7D32;
+
+    .balance-card,
+    .expense-card,
+    .budget-card,
+    .movements-card {
+
+        border-radius: 22px;
+
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+
+    }
+
+}
+
+.expense-card h2 {
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+}
+
+.budget-card {
+
+    flex: 1;
+
+    border-radius: 22px;
+
+    background: #E8F5E9;
+
+    color: #2E7D32;
+
+    .balance-card,
+    .expense-card,
+    .budget-card,
+    .movements-card {
+
+        border-radius: 22px;
+
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+
+    }
+
+}
+
+.budget-card h2 {
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+}
+.movements-card{
+
+    margin:18px;
+
+    border-radius:22px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.movement-icon{
+
+    width:48px;
+
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#E8F5E9;
+
+    font-size:24px;
+
+}
+
+.expense-value{
+
+    color:#E53935;
+
+    font-weight:700;
+
+}
