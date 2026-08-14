@@ -252,3 +252,51 @@ background:#29457C;
     font-weight:700;
 
 }
+.add-income {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.add-income ion-icon {
+    font-size: 38px;
+}
+
+.add-income span {
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+.income-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.income-form ion-input {
+    flex: 1;
+}
+
+.budget-form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 8px;
+}
+
+.budget-form ion-input {
+    width: 100px;
+}
+
+.edit-budget {
+    border: none;
+    background: transparent;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font-size: 12px;
+}

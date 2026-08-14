@@ -9,11 +9,18 @@ import { Expense } from '../models/Expense';
 
 interface ExpenseContextType {
   expenses: Expense[];
+  income: number;
+  budget: number;
+
   addExpense: (
     description: string,
     amount: number,
     category: string
   ) => void;
+
+  addIncome: (amount: number) => void;
+  setBudget: (amount: number) => void;
+
   deleteExpense: (id: number) => void;
   updateExpense: (
     id: number,
@@ -61,6 +68,9 @@ const initialExpenses: Expense[] = [
   },
 ];
 
+const initialIncome = 500;
+const initialBudget = 500;
+
 const ExpenseContext = createContext<ExpenseContextType | undefined>(
   undefined
 );
@@ -73,6 +83,8 @@ export const ExpenseProvider = ({
   children,
 }: ExpenseProviderProps) => {
   const [expenses, setExpenses] = useState<Expense[]>(initialExpenses);
+  const [income, setIncome] = useState<number>(initialIncome);
+  const [budget, setBudgetState] = useState<number>(initialBudget);
 
   const addExpense = (
     description: string,
@@ -91,6 +103,13 @@ export const ExpenseProvider = ({
       ...currentExpenses,
       newExpense,
     ]);
+  };
+  const addIncome = (amount: number) => {
+    setIncome((currentIncome) => currentIncome + amount);
+  };
+
+  const setBudget = (amount: number) => {
+    setBudgetState(amount);
   };
 
   const deleteExpense = (id: number) => {
@@ -123,6 +142,10 @@ export const ExpenseProvider = ({
     <ExpenseContext.Provider
       value={{
         expenses,
+        income,
+        budget,
+        addIncome,
+        setBudget,
         addExpense,
         deleteExpense,
         updateExpense,
