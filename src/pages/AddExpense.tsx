@@ -11,9 +11,17 @@ import {
     IonSelectOption,
     IonButton
 } from '@ionic/react';
-import { useState } from 'react';
 import { toastController } from '@ionic/core';
+import { useState } from 'react';
+import { useExpenses } from '../contexts/ExpenseContext';
+import { categories } from '../data/categories';
+
 export default function AddExpense() {
+    const { addExpense } = useExpenses();
+    const [description, setDescription] = useState('');
+    const [amount, setAmount] = useState('');
+    const [category, setCategory] = useState('');
+
     const showToast = async () => {
         const toast = await toastController.create({
             message: 'Gasto registrado exitosamente',
@@ -22,6 +30,38 @@ export default function AddExpense() {
         });
         await toast.present();
     };
+    const handleSubmit = async () => {
+        const numericAmount = Number(amount);
+
+        if (
+            description.trim() === '' ||
+            amount === '' ||
+            numericAmount <= 0 ||
+            category === ''
+        ) {
+            const toast = await toastController.create({
+                message: 'Completa todos los campos correctamente',
+                duration: 1500,
+                color: 'danger',
+            });
+
+            await toast.present();
+
+            return;
+        }
+
+        addExpense(
+            description.trim(),
+            numericAmount,
+            category
+        );
+
+        setDescription('');
+        setAmount('');
+        setCategory('');
+
+        await showToast();
+    };
     return (
         <IonPage>
             <IonHeader>
@@ -29,25 +69,69 @@ export default function AddExpense() {
                     <IonTitle>Registrar gasto</IonTitle>
                 </IonToolbar>
             </IonHeader>
-            <IonContent className='ion-padding'>
+            <IonContent className="ion-padding">
+
                 <IonItem>
-                    <IonLabel position='stacked'>Descripción</IonLabel>
-                    <IonInput placeholder='Ej: Almuerzo' />
+                    <IonLabel position="stacked">
+                        Descripción
+                    </IonLabel>
+
+                    <IonInput
+                        placeholder="Ej: Almuerzo"
+                        value={description}
+                        onIonInput={(event) =>
+                            setDescription(event.detail.value ?? '')
+                        }
+                    />
                 </IonItem>
+
                 <IonItem>
-                    <IonLabel position='stacked'>Monto</IonLabel>
-                    <IonInput type='number' placeholder='0.00' />
+                    <IonLabel position="stacked">
+                        Monto
+                    </IonLabel>
+
+                    <IonInput
+                        type="number"
+                        placeholder="0.00"
+                        value={amount}
+                        onIonInput={(event) =>
+                            setAmount(event.detail.value ?? '')
+                        }
+                    />
                 </IonItem>
+
                 <IonItem>
-                    <IonLabel position='stacked'>Categoría</IonLabel>
-                    <IonSelect placeholder='Seleccione'>
-                        <IonSelectOption value='comida'>Comida</IonSelectOption>
-                        <IonSelectOption value='transporte'>Transporte</IonSelectOption>
-                        <IonSelectOption value='salud'>Salud</IonSelectOption>
-                        <IonSelectOption value='ocio'>Ocio</IonSelectOption>
+                    <IonLabel position="stacked">
+                        Categoría
+                    </IonLabel>
+
+                    <IonSelect
+                        placeholder="Seleccione"
+                        value={category}
+                        onIonChange={(event) =>
+                            setCategory(event.detail.value)
+                        }
+                    >
+                        {categories.map((categoryOption) => (
+                            <IonSelectOption
+                                key={categoryOption}
+                                value={categoryOption}
+                            >
+                                {categoryOption}
+                            </IonSelectOption>
+                        ))}
                     </IonSelect>
                 </IonItem>
-                <IonButton expand='block' onClick={showToast} className='ion-margin-top'> Guardar </IonButton>
+
+                <IonButton
+                    expand="block"
+                    onClick={handleSubmit}
+                    className="ion-margin-top"
+                >
+                    Guardar
+                </IonButton>
+
             </IonContent>
-        </IonPage>);
+        </IonPage>
+    );
 }

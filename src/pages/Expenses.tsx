@@ -8,8 +8,10 @@ import {
     IonItem,
     IonLabel,
     IonBadge
-} from '@ionic/react';
-import { mockExpenses } from '../data/expenses'; export default function Expenses() {
+    } from '@ionic/react';
+import { useExpenses } from '../contexts/ExpenseContext';
+export default function Expenses() {
+    const { expenses } = useExpenses();
     return (
         <IonPage>
             <IonHeader>
@@ -18,7 +20,7 @@ import { mockExpenses } from '../data/expenses'; export default function Expense
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-                <IonList> {mockExpenses.map(expense => (<IonItem key={expense.id}>
+                <IonList> {expenses.map(expense => (<IonItem key={expense.id}>
                     <IonLabel>
                         <h2>{expense.description}</h2>
                         <p>{expense.category}</p>
