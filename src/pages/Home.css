@@ -87,32 +87,36 @@ background:#29457C;
 
 }
 
+.balance-card,
+.expense-card,
+.budget-card,
+.budget-progress-card,
+.category-card,
+.movements-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
 .balance-card {
-
-    margin: 18px;
-
-    border-radius: 22px;
-
-    background: linear-gradient(135deg, #FFD54F, #FFC107);
-
-    color: #3E2F00;
-
+    background: rgba(92, 255, 59, 0.226);
+    color: green;
     text-align: center;
+}
 
-    .balance-card,
-    .expense-card,
-    .budget-card,
-    .movements-card {
+.expense-card {
+    background: linear-gradient(135deg, #FFF5F5, #FFE8E8);
+    color: #C62828;
+}
 
-        border-radius: 22px;
-
-        box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
-
-    }
-
+.budget-card {
+    background: linear-gradient(135deg, #F1F6FF, #E3EDFF);
+    color: #1565C0;
 }
 
 .balance-card h1 {
+
+    text-align: center;
 
     font-size: 42px;
 
@@ -156,27 +160,10 @@ background:#29457C;
 
 }
 
-.expense-card {
-
+.expense-card,
+.budget-card {
     flex: 1;
-
-    border-radius: 22px;
-
-    background: #FFFFFF;
-
-    color: #2E7D32;
-
-    .balance-card,
-    .expense-card,
-    .budget-card,
-    .movements-card {
-
-        border-radius: 22px;
-
-        box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
-
-    }
-
+    margin: 0;
 }
 
 .expense-card h2 {
@@ -187,43 +174,12 @@ background:#29457C;
 
 }
 
-.budget-card {
-
-    flex: 1;
-
-    border-radius: 22px;
-
-    background: #E8F5E9;
-
-    color: #2E7D32;
-
-    .balance-card,
-    .expense-card,
-    .budget-card,
-    .movements-card {
-
-        border-radius: 22px;
-
-        box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
-
-    }
-
-}
 
 .budget-card h2 {
 
     font-size: 28px;
 
     font-weight: bold;
-
-}
-.movements-card{
-
-    margin:18px;
-
-    border-radius:22px;
-
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
 
 }
 
@@ -293,10 +249,145 @@ background:#29457C;
 }
 
 .edit-budget {
+    position: absolute;
+    top: 12px;
+    right: 6px;
+
+    width: 30px;
+    height: 10px;
+
     border: none;
+    border-radius: 50%;
+
     background: transparent;
-    text-decoration: underline;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     cursor: pointer;
-    padding: 0;
+
+    opacity: 0.65;
+}
+
+.edit-budget ion-icon {
+    font-size: 20px;
+}
+
+.edit-budget:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.budget-progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.budget-progress-card ion-progress-bar {
+    height: 10px;
+    border-radius: 10px;
+}
+
+.budget-progress-text {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.budget-warning {
+    font-weight: 600;
+}
+
+.budget-percentage {
+    text-align: center;
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+.category-chart {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 25px;
+}
+
+.donut-chart {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+
+    background: conic-gradient(
+        #4caf50 0% 40%,
+        #2196f3 40% 65%,
+        #ff9800 65% 85%,
+        #f44336 85% 100%
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.donut-center {
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    background: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.donut-center strong {
+    font-size: 18px;
+}
+
+.donut-center span {
     font-size: 12px;
+    margin-top: 3px;
+}
+.category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.category-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.category-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.category-value {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.category-value span {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.category-value strong {
+    min-width: 65px;
+    text-align: right;
 }

@@ -1,0 +1,29 @@
+.page-header {
+    box-shadow: none;
+}
+
+.page-header ion-toolbar {
+    --background: linear-gradient(135deg, #2E7D32, #1B5E20);
+    --color: white;
+    --border-width: 0;
+}
+
+.page-header-content {
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.page-header-content h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.page-header-content p {
+    margin: 6px 0 0;
+    font-size: 14px;
+    opacity: 0.9;
+}

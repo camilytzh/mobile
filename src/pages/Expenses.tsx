@@ -2,21 +2,24 @@ import {
     IonPage,
     IonHeader,
     IonToolbar,
-    IonTitle,
     IonContent,
     IonList,
     IonItem,
     IonLabel,
     IonBadge
-    } from '@ionic/react';
+} from '@ionic/react';
 import { useExpenses } from '../contexts/ExpenseContext';
+import "./Pages.css";
 export default function Expenses() {
     const { expenses } = useExpenses();
     return (
         <IonPage>
-            <IonHeader>
+            <IonHeader className="page-header">
                 <IonToolbar>
-                    <IonTitle>Movimientos</IonTitle>
+                    <div className="page-header-content">
+                        <h1>Movimientos</h1>
+                        <p>Revisa tus gastos registrados</p>
+                    </div>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
@@ -25,7 +28,7 @@ export default function Expenses() {
                         <h2>{expense.description}</h2>
                         <p>{expense.category}</p>
                     </IonLabel>
-                    <IonBadge color='danger'> ${expense.amount.toFixed(2)} </IonBadge>
+                    <IonBadge color='danger'> -${expense.amount.toFixed(2)} </IonBadge>
                 </IonItem>))}
                 </IonList>
             </IonContent>

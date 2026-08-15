@@ -2,7 +2,6 @@ import {
     IonPage,
     IonHeader,
     IonToolbar,
-    IonTitle,
     IonContent,
     IonItem,
     IonLabel,
@@ -15,6 +14,7 @@ import { toastController } from '@ionic/core';
 import { useState } from 'react';
 import { useExpenses } from '../contexts/ExpenseContext';
 import { categories } from '../data/categories';
+import "./Pages.css";
 
 export default function AddExpense() {
     const { addExpense } = useExpenses();
@@ -64,9 +64,12 @@ export default function AddExpense() {
     };
     return (
         <IonPage>
-            <IonHeader>
+            <IonHeader className="page-header">
                 <IonToolbar>
-                    <IonTitle>Registrar gasto</IonTitle>
+                    <div className="page-header-content">
+                        <h1>Registrar gasto</h1>
+                        <p>Agrega un nuevo movimiento</p>
+                    </div>
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">
